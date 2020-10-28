@@ -1,4 +1,7 @@
 package com.mylearning.unsplashphotoapp.api
 
-class UnsplashResponse {
-}
+import com.mylearning.unsplashphotoapp.data.UnsplashPhoto
+
+data class UnsplashResponse  (
+    val results : List<UnsplashPhoto>
+)
