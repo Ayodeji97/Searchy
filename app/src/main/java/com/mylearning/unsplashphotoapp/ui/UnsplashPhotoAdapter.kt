@@ -1,6 +1,7 @@
 package com.mylearning.unsplashphotoapp.ui
 
 import android.graphics.drawable.Drawable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
@@ -28,7 +29,8 @@ class UnsplashPhotoAdapter : PagingDataAdapter<UnsplashPhoto, UnsplashPhotoAdapt
                     .error(R.drawable.ic_error)
                     .into(imageView)
 
-                textViewUserName.text = photo.users.username
+                  textViewUserName.text = photo.user.username
+
 
             }
         }
