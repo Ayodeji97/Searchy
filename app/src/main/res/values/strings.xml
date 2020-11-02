@@ -2,4 +2,6 @@
     <string name="app_name">UnSplashPhotoApp</string>
     <string name="not_result_str">No result found for this query</string>
     <string name="result_not_loaded_str">Result could not be loaded</string>
+    <string name="opps_result_could_not_be_loaded_str">Opps, result could not be loaded</string>
+    <string name="retry_str">Retry</string>
 </resources>
