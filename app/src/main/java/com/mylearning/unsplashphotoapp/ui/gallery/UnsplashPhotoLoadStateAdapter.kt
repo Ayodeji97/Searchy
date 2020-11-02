@@ -8,7 +8,7 @@ import androidx.paging.LoadStateAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.mylearning.unsplashphotoapp.databinding.UnsplashPhotoLoadStateFooterBinding
 
-class UnspalshPhotoLoadStateAdapter (private val retry : () -> Unit ): LoadStateAdapter<UnspalshPhotoLoadStateAdapter.LoadStateViewHolder> () {
+class UnsplashPhotoLoadStateAdapter (private val retry : () -> Unit ): LoadStateAdapter<UnsplashPhotoLoadStateAdapter.LoadStateViewHolder> () {
 
     override fun onCreateViewHolder(parent: ViewGroup, loadState: LoadState): LoadStateViewHolder {
         val binding = UnsplashPhotoLoadStateFooterBinding.inflate(
