@@ -4,4 +4,5 @@
     <string name="result_not_loaded_str">Result could not be loaded</string>
     <string name="opps_result_could_not_be_loaded_str">Opps, result could not be loaded</string>
     <string name="retry_str">Retry</string>
+    <string name="search_str">Search</string>
 </resources>

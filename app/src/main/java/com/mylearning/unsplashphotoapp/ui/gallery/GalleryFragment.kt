@@ -43,6 +43,8 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
         }
     }
 
+    /****/
+
     /** Release reference to the view when the view is destroyed **/
     override fun onDestroyView() {
         super.onDestroyView()
