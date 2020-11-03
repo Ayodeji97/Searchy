@@ -11,12 +11,13 @@ import androidx.fragment.app.viewModels
 import androidx.paging.LoadState
 
 import com.mylearning.unsplashphotoapp.R
+import com.mylearning.unsplashphotoapp.data.UnsplashPhoto
 import com.mylearning.unsplashphotoapp.databinding.FragmentGalleryBinding
 import com.mylearning.unsplashphotoapp.ui.UnsplashPhotoAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class GalleryFragment : Fragment(R.layout.fragment_gallery) {
+class GalleryFragment : Fragment(R.layout.fragment_gallery), UnsplashPhotoAdapter.OnItemClickListener {
 
     private val viewModel by viewModels<GalleryViewModel> ()
 
@@ -29,7 +30,7 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
 
         _binding = FragmentGalleryBinding.bind(view)
 
-        val adapter = UnsplashPhotoAdapter()
+        val adapter = UnsplashPhotoAdapter(this)
 
         binding.apply {
             recyclerView.setHasFixedSize(true)
@@ -76,6 +77,12 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
 
     }
 
+    override fun onItemClick(photo: UnsplashPhoto) {
+        val action  = GalleryFragmentDirections.actionGalleryFragmentToDetailsFragment(photo)
+    }
+
+
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
 
@@ -114,6 +121,8 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
 
         _binding = null
     }
+
+
 
 
 }

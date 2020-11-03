@@ -13,13 +13,26 @@ import com.mylearning.unsplashphotoapp.R
 import com.mylearning.unsplashphotoapp.data.UnsplashPhoto
 import com.mylearning.unsplashphotoapp.databinding.ItemUnsplashPhotoBinding
 
-class UnsplashPhotoAdapter : PagingDataAdapter<UnsplashPhoto, UnsplashPhotoAdapter.PhotoViewHolder>(
+class UnsplashPhotoAdapter (private val listener : OnItemClickListener) : PagingDataAdapter<UnsplashPhoto, UnsplashPhotoAdapter.PhotoViewHolder>(
     PHOTO_COMPARATOR
 ) {
 
-    class PhotoViewHolder(private val binding: ItemUnsplashPhotoBinding) :
+   inner class PhotoViewHolder(private val binding: ItemUnsplashPhotoBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
+        init {
+            binding.root.setOnClickListener {
+                // get the position of the item in the recyclerview
+                val position = bindingAdapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val item = getItem(position)
+                    if (item != null) {
+                        listener.onItemClick(item)
+                    }
+                }
+
+            }
+        }
         fun bind(photo: UnsplashPhoto) {
             binding.apply {
                 Glide.with(itemView)
@@ -35,6 +48,10 @@ class UnsplashPhotoAdapter : PagingDataAdapter<UnsplashPhoto, UnsplashPhotoAdapt
             }
         }
 
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(photo: UnsplashPhoto)
     }
 
     companion object {
